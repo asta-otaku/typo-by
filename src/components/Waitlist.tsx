@@ -10,7 +10,7 @@ function Waitlist({
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <div className="max-w-sm md:max-w-xl bg-[#F6F6F6] rounded-3xl w-full mx-auto flex flex-col items-center gap-4 p-6">
+      <div className="max-w-sm bg-[#F6F6F6] rounded-3xl w-full mx-auto flex flex-col items-center gap-4 p-6">
         {
           {
             1: (
@@ -235,7 +235,7 @@ function Waitlist({
             handleSetStep(3);
           }
         }}
-        className="mt-6 bg-[#191919CC] text-white font-semibold py-3 px-3 max-w-sm md:max-w-xl w-full rounded-3xl"
+        className="mt-6 bg-[#191919CC] text-white font-semibold py-3 px-3 max-w-sm w-full rounded-3xl"
       >
         {
           {
