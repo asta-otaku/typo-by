@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "FS PRO Display";
+  src: url("./fonts/SFPRO/SFPRODISPLAYREGULAR.OTF") format("opentype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "FS PRO Display";
+  src: url("./fonts/SFPRO/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "FS PRO Display";
+  src: url("./fonts/SFPRO/SFPRODISPLAYBOLD.OTF") format("opentype");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "FS Mono";
+  src: url("./fonts/SFMONO/SFMonoRegular.otf") format("opentype");
+}
+
+* {
+  font-family: "FS PRO Display", sans-serif;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.slide-left {
+  transition: transform 0.5s ease-in-out;
+  transform: translateX(-100%);
+}
