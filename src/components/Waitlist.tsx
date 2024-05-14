@@ -2,9 +2,11 @@ import { useState } from "react";
 import back from "../assets/back.svg";
 
 function Waitlist({
-  handleSetStep,
+  handlePrev,
+  handleNext,
 }: {
-  handleSetStep: (nextStep: number) => void;
+  handlePrev: () => void;
+  handleNext: () => void;
 }) {
   const [formStep, setFormStep] = useState(1);
 
@@ -16,10 +18,7 @@ function Waitlist({
             1: (
               <>
                 <div className="flex items-center self-start gap-4 w-full">
-                  <span
-                    className="cursor-pointer"
-                    onClick={() => handleSetStep(1)}
-                  >
+                  <span className="cursor-pointer" onClick={handlePrev}>
                     <img src={back} alt="" />
                   </span>
                   <h4 className="text-[#191919] text-xl text-center w-full font-medium">
@@ -232,7 +231,7 @@ function Waitlist({
           if (formStep === 1) {
             setFormStep(2);
           } else {
-            handleSetStep(3);
+            handleNext();
           }
         }}
         className="mt-6 bg-[#191919CC] text-white font-semibold py-3 px-3 max-w-sm w-full rounded-3xl"

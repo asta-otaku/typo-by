@@ -5,14 +5,22 @@ import Waitlist from "./components/Waitlist";
 
 function App() {
   const [step, setStep] = useState(1);
-  const [transitioning, setTransitioning] = useState(false);
+  const [transitioning, setTranstioning] = useState("");
 
-  const handleStepChange = (nextStep: number) => {
-    setTransitioning(true);
+  const handleNext = () => {
+    setTranstioning("forward");
     setTimeout(() => {
-      setStep(nextStep);
-      setTransitioning(false);
-    }, 500); // Adjust the delay time as needed
+      setStep(step + 1);
+      setTranstioning("");
+    }, 1000); // Adjust the delay time as needed
+  };
+
+  const handlePrev = () => {
+    setTranstioning("backward");
+    setTimeout(() => {
+      setStep(step - 1);
+      setTranstioning("");
+    }, 1000);
   };
 
   return (
@@ -21,8 +29,12 @@ function App() {
         <img src={logo} alt="logo" className="w-12" />
       </a>
       <div
-        className={`transition-transform ease-in-out duration-500 w-full h-full ${
-          transitioning ? "slide-in" : "slide-out"
+        className={`transition-transform ease-in-out duration-1000 w-full h-full ${
+          transitioning === "forward"
+            ? "slide-in"
+            : transitioning === "backward"
+            ? "slide-reverse"
+            : "slide-out"
         }`}
       >
         {
@@ -30,7 +42,7 @@ function App() {
             1: (
               <div
                 id="one"
-                onClick={() => handleStepChange(2)}
+                onClick={handleNext}
                 className="w-full h-full flex flex-col items-center justify-center"
               >
                 <img src={admit} alt="admit" />
@@ -44,7 +56,7 @@ function App() {
                 id="two"
                 className="w-full h-full flex flex-col items-center justify-center"
               >
-                <Waitlist handleSetStep={handleStepChange} />
+                <Waitlist handleNext={handleNext} handlePrev={handlePrev} />
               </div>
             ),
             3: (
